@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Estoque
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('index') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar ao Início</a>
+    
+        <h1>Lista de Itens no Estoque</h1>
+    
+        <a href="{{ url_for('novo_item') }}" class="btn-large teal darken-1"><i class="material-icons">add</i>Adicionar Novo Item</a>
+    
+        <table border="1" class="highlight tabela">
+            <thead>
+                <tr>
+                    <th>Cód.</th>
+                    <th>Nome</th>
+                    <th>Peso/Volume</th>
+                    <th>Ações</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in item %}
+                <tr>
+                    <td>{{ i.id_item }}</td>
+                    <td>{{ i.nome }}</td>
+                    <td>{{ i.peso_volume }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_item', id=i.id_item) }}" class="btn teal darken-1"><i class="material-icons">edit</i>Editar</a>
+                        <form action="{{ url_for('remover_item', id_item=i['id_item']) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn red darken-2 cta" onclick="return confirm('Tem certeza que deseja remover este item?');"><i class="material-icons">delete</i>Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    
+    
+{% endblock %}
+

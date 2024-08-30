@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Gerenciamento de Estoque de Cestas Básicas
+{% endblock %}
+
+{% block content %}
+
+    <div style="padding-bottom: 30px;">
+        <h1>Bem-vindo ao Sistema de Cestas Básicas!</h1>
+        <h5>Clique em uma seção para começar.</h5>
+    </div>
+    
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card-panel teal darken-1">
+                <a href="{{ url_for('estoque') }}">
+                        <i class="material-icons" style="font-size: 48px; margin-right: 16px;">list</i>Ver Estoque
+                </a>
+            </div>
+        </div>
+    
+        <div class="col s12 m6">
+            <div class="card-panel teal darken-1">
+                <a href="{{ url_for('cestas') }}">
+                    <i class="material-icons" style="font-size: 48px; margin-right: 16px;">food_bank</i>Ver Cestas
+                </a>
+            </div>
+        </div>
+    
+        <div class="col s12 m6">
+            <div class="card-panel teal darken-1">
+                <a href="{{ url_for('donatario') }}">
+                    <i class="material-icons" style="font-size: 48px; margin-right: 16px;">groups</i>Ver Donatários
+                </a>
+            </div>
+        </div>
+    
+        <div class="col s12 m6">
+            <div class="card-panel teal darken-1">
+                <a href="{{ url_for('doacoes') }}">
+                    <i class="material-icons" style="font-size: 48px; margin-right: 16px;">volunteer_activism</i>Ver Doações
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    
+{% endblock %}
+

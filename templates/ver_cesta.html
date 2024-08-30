@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Ver Detalhes da Cesta Básica
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('cestas') }}" class="voltar">Voltar para a Lista de Cestas</a>
+    
+        <h1>Detalhes da Cesta: {{ cesta['nome'] }}</h1>
+    
+        <h2>Itens na Cesta:</h2>
+        <table border="1" class="highlight">
+            <thead>
+                <tr>
+                    <th>Nome do Item</th>
+                    <th>Quantidade</th>
+                    <th>Peso/Volume por Unidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itens %}
+                <tr>
+                    <td>{{ item['nome'] }}</td>
+                    <td>{{ item['qt_itens'] }}</td>
+                    <td>{{ item['peso_volume'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    
+    
+{% endblock %}
+
+

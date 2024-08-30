@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cadastrar Nova Cesta Básica
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('cestas') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar para Lista de Cestas Básicas</a>
+    
+        <h1>Cadastrar Nova Cesta</h1>
+        <form action="{{ url_for('nova_cesta') }}" method="POST">
+            <label for="nome">Nome da Cesta:</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex.: Cesta de Fim de Ano" required>
+            <br><br>
+            
+            <label for="quantidade_itens">Quantidade de Itens:</label>
+            <input type="number" id="quantidade" name="quantidade" value="0" min="0" required>
+            <br><br>
+            
+            <button type="submit" class="btn-large teal darken-1"><i class="material-icons">add</i>Cadastrar Cesta</button>
+        </form>
+
+    </div>
+
+    
+{% endblock %}

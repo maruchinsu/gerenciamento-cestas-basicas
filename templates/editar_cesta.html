@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Editar Cesta Básica
+{% endblock %}
+
+{% block content %}
+     
+    <div class="conteudo">
+        <a href="{{ url_for('cestas') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar para a Lista de Cestas</a> 
+    
+        <h1>Editar Cesta</h1>
+
+        <div class="secao">
+            <h3>Editar Nome da Cesta</h3>
+            <form method="POST">
+                <label for="nome">Nome da Cesta:</label>
+                <input type="text" id="nome" name="nome" value="{{ cesta['nome'] }}" placeholder="Ex.: Cesta de Fim de Ano" required>
+        
+                <button type="submit" class="btn-large teal darken-1" style="margin-top: 12px;"><i class="material-icons">save</i>Salvar</button>
+            </form>
+        </div>
+        
+        <div class="secao">
+            <h3>Adicionar Novo Item à Cesta</h3>
+            <form method="POST">
+                <label for="fk_id_item">Selecione o Item:</label>
+                <select id="fk_id_item" name="fk_id_item">
+                    {% for item in todos_itens %}
+                    <option value="{{ item['id_item'] }}">{{ item['nome'] }}</option>
+                    {% endfor %}
+                </select>
+        
+                <label for="qt_itens">Quantidade:</label>
+                <input type="number" id="qt_itens" name="qt_itens" value="1" min="1" required>
+        
+                <button type="submit" class="btn-large teal darken-1" style="margin-top: 12px;"><i class="material-icons">add</i>Adicionar Item</button>
+        
+                <br>
+                
+            </form>
+        </div>
+
+        <div class="secao">
+            <h3>Itens na Cesta</h3>
+        
+            <table border="1" class="highlight">
+                <thead>
+                    <tr>
+                        <th>Nome do Item</th>
+                        <th>Quantidade</th>
+                        <th>Peso/Volume por Unidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in itens %}
+                    <tr>
+                        <td>{{ item['nome'] }}</td>
+                        <td>{{ item['qt_itens'] }}</td>
+                        <td>{{ item['peso_volume'] }}</td>
+                        <td>
+                            <form action="{{ url_for('remover_item_cesta', id_componente=item['id_componente'], id_cesta=cesta['id_cesta']) }}" method="post">
+                                <button type="submit" class="btn red darken-2"><i class="material-icons">delete</i>Remover</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+
+    </div>
+
+
+    
+    
+
+    
+    
+{% endblock %}

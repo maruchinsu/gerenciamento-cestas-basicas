@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Registrar Nova Doação
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('donatario') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar à Lista de Donatários</a>
+        <h2>Registrar Doação para {{ donatario['nome'] }}</h2>
+    
+        <form method="POST">
+            <label for="fk_id_cesta">Selecione a Cesta:</label>
+            <select name="fk_id_cesta" id="fk_id_cesta" required>
+                {% for cesta in cestas %}
+                <option value="{{ cesta['id_cesta'] }}">{{ cesta['nome'] }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+    
+            <label for="qt_cestas">Quantidade de Cestas:</label>
+            <input type="number" name="qt_cestas" id="qt_cestas" value="1" min="1" required>
+            <br><br>
+    
+            <button type="submit" class="btn-large teal darken-1"><i class="material-icons">list_alt</i>Registrar Doação</button>
+        </form>
+
+    </div>
+
+
+{% endblock %}
+

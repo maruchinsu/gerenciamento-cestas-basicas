@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cestas Básicas
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('index') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar ao Início</a>
+
+        <h1>Lista de Cestas Básicas</h1>
+
+        <a href="{{ url_for('nova_cesta') }}" class="btn-large teal darken-1"><i class="material-icons">add</i>Cadastrar Nova Cesta</a>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Cód.</th>
+                    <th>Nome</th>
+                    <th>Quantidade de itens</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in cesta %}
+                <tr>
+                    <td>{{ i.id_cesta }}</td>
+                    <td>{{ i.nome }}</td>
+                    <td>{{ i.qt_itens }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_cesta', id=i['id_cesta']) }}" class="btn teal darken-1"><i class="material-icons">edit</i>Editar</a> 
+                        <a href="{{ url_for('ver_cesta', id=i['id_cesta']) }}" class="btn teal darken-1"><i class="material-icons">visibility</i>Ver Cesta</a> 
+                        <form action="{{ url_for('remover_cesta', id_cesta=i['id_cesta']) }}" method="post" style="display:inline;" >
+                            <button type="submit" onclick="return confirm('Tem certeza que deseja remover esta cesta?');" class="btn red darken-2"><i class="material-icons">delete</i>Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    
+
+    
+{% endblock %}
+

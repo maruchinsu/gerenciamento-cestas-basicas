@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Registro de Doações
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('index') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar ao Início</a>
+
+        <h2>Registro de Doações</h2>
+
+        <table border="1" class="highlight">
+            <thead>
+                <tr>
+                    <th>ID da Doação</th>
+                    <th>Donatário</th>
+                    <th>Cesta</th>
+                    <th>Quantidade de Cestas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doacao in doacoes %}
+                <tr>
+                    <td>{{ doacao['id_doacao'] }}</td>
+                    <td>{{ doacao['donatario'] }}</td>
+                    <td>{{ doacao['cesta'] }}</td>
+                    <td>{{ doacao['qt_cestas'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+
+    
+{% endblock %}
+

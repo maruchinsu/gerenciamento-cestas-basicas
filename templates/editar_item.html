@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Editar Item
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('estoque') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar ao Estoque</a>
+    
+        <h1>Editar Item do Estoque</h1>
+        <form action="{{ url_for('editar_item', id=item.id_item) }}" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="{{ item.nome }}" placeholder="Ex.: Lata de Goiabada" required>
+            <br><br>
+            
+            <label for="peso_volume">Peso/Volume:</label>
+            <input type="text" id="peso_volume" name="peso_volume" value="{{ item.peso_volume }} " class="materialize-textarea" placeholder="Ex.: 1 kg, 2 L, 500 g..." required>
+            <br><br>
+            
+            <button type="submit" class="btn-large teal darken-1"><i class="material-icons">save</i>Salvar Alterações</button>
+        </form>
+    </div>
+
+
+{% endblock %}

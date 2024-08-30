@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista de Donatários
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('index') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar</a>
+    
+        <h1>Lista de Donatários</h1>
+    
+        <a href="{{ url_for('novo_donatario') }}" class="btn-large teal darken-1"><i class="material-icons">add</i>Cadastrar Novo Donatário</a>
+    
+        <table border="1" class="highlight tabela">
+            <thead>
+                <tr>
+                    <th>Cód.</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in donatario %}
+                <tr>
+                    <td>{{ i.id_donatario }}</td>
+                    <td>{{ i.nome }}</td>
+                    <td>{{ i.telefone }}</td>
+                    <td>{{ i.endereco }}</td>
+                    <td>
+                        <a href="{{ url_for('registrar_doacao', id_donatario=i['id_donatario']) }}" class="btn teal darken-1"><i class="material-icons">list_alt</i>Registrar Doação</a>  
+                        <a href="{{ url_for('editar_donatario', id=i.id_donatario) }}" class="btn teal darken-1"><i class="material-icons">edit</i>Editar</a>  
+                        <form action="{{ url_for('remover_donatario', id_donatario=i['id_donatario']) }}" method="post" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Tem certeza que deseja remover este donatário?');" class="btn red darken-2"><i class="material-icons">delete</i>Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    
+{% endblock %}
+

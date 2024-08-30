@@ -1,0 +1,52 @@
+.card-panel {
+    height: 200px;
+    text-align: center;
+    text-anchor: middle;
+    align-items: center;
+    padding: 0;
+}
+
+.card-panel a {
+    font-size: xx-large;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente (opcional) */
+    height: 100%;
+    width: 100%;
+    color: #fff;
+}
+
+
+.tabela {
+    margin-top: 24px;
+}
+
+label {
+    font-size: medium;
+    color: #757575;
+}
+
+.voltar {
+    border-radius: 3px;
+    padding: 16px 16px 16px 14px;
+    color: #00897b;
+}
+
+.voltar:hover {
+    background-color: #eee;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.conteudo {
+    padding: 24px 0 36px 0;
+}
+
+.secao {
+    padding: 8px 0 8px 0;
+}
+

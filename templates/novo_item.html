@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cadastrar Novo Item no Estoque
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('estoque') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar para Estoque</a>
+
+        <h1>Cadastrar Novo Item no Estoque</h1>
+        <form action="{{ url_for('novo_item') }}" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex.: Lata de Goiabada" required><br><br>
+            <label for="peso_volume">Peso/volume:</label>
+            <textarea id="peso_volume" name="peso_volume" class="materialize-textarea" placeholder="Ex.: 1 kg, 2 L, 500 g..."></textarea><br><br>
+            <button type="submit" class="btn-large teal darken-1"><i class="material-icons">add</i>Cadastrar Novo Item</button>
+
+        </form>
+    </div>
+
+    
+    
+    
+{% endblock %}
+

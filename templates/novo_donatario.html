@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cadastrar Novo Donatário
+{% endblock %}
+
+{% block content %}
+
+    <div class="conteudo">
+        <a href="{{ url_for('donatario') }}" class="voltar"><i class="material-icons">navigate_before</i>Voltar para Lista de Donatários</a>
+    
+        <h1>Cadastrar Novo Donatário</h1>
+        <form action="{{ url_for('novo_donatario') }}" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex.: Fulano da Silva" required><br><br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="Ex.: 123456789"><br><br>
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" name="endereco" placeholder="Ex.: Rua das Joaninhas, 85, Bairro Limoeiro" class="materialize-textarea"></textarea><br><br>
+            <button type="submit" class="btn-large teal darken-1"><i class="material-icons">add</i>Cadastrar Novo Donatário</button>
+
+        </form>
+
+    </div>
+
+
+    
+{% endblock %}
+
+
